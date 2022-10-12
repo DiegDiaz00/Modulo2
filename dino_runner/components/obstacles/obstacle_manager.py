@@ -1,4 +1,4 @@
-from dino_runner.utils.constants import SMALL_CACTUS
+import random
 from dino_runner.components.obstacles.cactus import Cactus
 
 class ObstacleManager:
@@ -7,7 +7,9 @@ class ObstacleManager:
 
     def update(self, game_speed):
         if len(self.obstacles) == 0:
-                self.obstacles.append(Cactus(SMALL_CACTUS))
+                cactus_type = 'SMALL' if random.randint(0, 1) == 0 else 'LARGE'
+                cactus = Cactus(cactus_type)
+                self.obstacles.append(cactus)
 
         for obstacle in self.obstacles:
             obstacle.update(game_speed, self.obstacles)
