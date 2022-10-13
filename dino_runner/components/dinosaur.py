@@ -60,7 +60,7 @@ class Dinosaur(Sprite):
 
         self.jump_vel -= 0.8
         if self.jump_vel < -8.5:
-            self.dino_rect.y += self.Y_POS
+            self.dino_rect.y = self.Y_POS
             self.dino_jump = False
             self.jump_vel = self.JUMP_VEL
 

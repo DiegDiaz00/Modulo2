@@ -2,6 +2,7 @@ import pygame
 
 from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, FONT_STYLE
 from dino_runner.components.dinosaur import Dinosaur
+from dino_runner.components.cloud import Cloud
 from dino_runner.components.obstacles.obstacle_manager import ObstacleManager
 from dino_runner.components.obstacles.text_generate import text_draw
 
@@ -17,6 +18,7 @@ class Game:
         self.x_pos_bg = 0
         self.y_pos_bg = 380
         self.player = Dinosaur()
+        self.clouds = Cloud()
         self.obstacle_manager = ObstacleManager()
         self.running = False
         self.score = 0
@@ -52,6 +54,7 @@ class Game:
         user_input = pygame.key.get_pressed()
         self.player.update(user_input)
         self.obstacle_manager.update(self)
+        self.clouds.update(self)
 
     def draw(self):
         self.clock.tick(FPS)
@@ -59,6 +62,7 @@ class Game:
         self.draw_background()
         self.draw_score()
         self.player.draw(self.screen)
+        self.clouds.draw(self.screen)
         self.obstacle_manager.draw(self.screen)
         pygame.display.update()
         pygame.display.flip()
@@ -101,7 +105,7 @@ class Game:
         else:
             
             text_draw('You lost press to try again', self.screen)
-            text_draw (f'Your score: {self. score}', self.screen, pos_y_center = half_screen_height + 50)
+            text_draw (f'Your score: {self.score}', self.screen, pos_y_center = half_screen_height + 50)
             text_draw (f' Your high score: {self.high_score}', self.screen, pos_y_center = half_screen_height + 100)
             text_draw (f' Death count: {self.death_count}', self.screen, pos_y_center = half_screen_height + 150)
         self.screen.blit(ICON,(half_screen_width-50,half_screen_height-150))
