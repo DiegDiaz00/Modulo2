@@ -41,7 +41,7 @@ class Game:
         self.score = 0
         self.game_speed = 20
         self.power_up_manager.reset_power_ups()
-        BACKGROUND_SOUND.stop()
+        
 
 
     def run(self):
@@ -135,7 +135,7 @@ class Game:
         if self.death_count == 0:
             text_draw('Press any key to restart ', self.screen)
         else:
-            pygame.mixer.music.pause()
+            BACKGROUND_SOUND.stop()
             text_draw('You lost press to try again', self.screen)
             text_draw (f'Your score: {self. score}', self.screen, pos_y_center = half_screen_height + 50)
             text_draw (f' Your high score: {self.high_score}', self.screen, pos_y_center = half_screen_height + 100)
