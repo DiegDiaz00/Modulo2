@@ -33,9 +33,14 @@ class Game:
         pygame.display.quit()
         pygame.quit()
 
+    def reset(self):
+        self.obstacle_manager.reset_obstacles()
+        self.score = 0
+        self.game_speed = 20
+
     def run(self):
         # Game loop: events - update - draw
-        self.obstacle_manager.reset_obstacles()
+        self.reset()
         self.playing = True
         while self.playing:
             self.events()

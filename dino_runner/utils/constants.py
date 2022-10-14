@@ -11,6 +11,11 @@ IMG_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
 # Assets Constants
 ICON = pygame.image.load(os.path.join(IMG_DIR, "DinoWallpaper.png"))
 
+JUMP_SOUND = pygame.mixer.Sound(os.path.join(IMG_DIR, 'Sounds/JUMP.wav'))
+LOSE_SOUND = pygame.mixer.Sound(os.path.join(IMG_DIR, 'Sounds/LOSE.wav'))
+POWER_SOUND = pygame.mixer.Sound(os.path.join(IMG_DIR, 'Sounds/POWERUP.wav'))
+BACKGROUND_SOUND = pygame.mixer.Sound(os.path.join(IMG_DIR, 'Sounds/BACKGROUNDSOUND.wav'))
+
 RUNNING = [
     pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoRun1.png")),
     pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoRun2.png")),
