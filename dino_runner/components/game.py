@@ -41,8 +41,6 @@ class Game:
         self.score = 0
         self.game_speed = 20
         self.power_up_manager.reset_power_ups()
-        
-
 
     def run(self):
         # Game loop: events - update - draw
@@ -90,8 +88,6 @@ class Game:
             self.x_pos_bg = 0
         self.x_pos_bg -= self.game_speed
         
-
-
     def draw_score(self):
         half_screen_height = SCREEN_HEIGHT // 2
         text_draw (f' You score: {self.score}', self.screen, pos_y_center = half_screen_height - 280)
@@ -133,7 +129,7 @@ class Game:
         half_screen_height = SCREEN_HEIGHT // 2
         half_screen_width = SCREEN_WIDTH // 2
         if self.death_count == 0:
-            text_draw('Press any key to restart ', self.screen)
+            text_draw('Press any key to start ', self.screen)
         else:
             BACKGROUND_SOUND.stop()
             text_draw('You lost press to try again', self.screen)
